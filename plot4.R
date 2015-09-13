@@ -29,12 +29,12 @@ data2 <- cbind(DateTime = x, data2)
 ## Plot all the 4 sub plots under the same plot and save as plot4
 par(mfrow = c(2,2))   ## Set aside for 2 rows of plots and each row containing two plots
 with (data2, {
-  plot(data2$DateTime, data2$Global_reactive_power, type="l", ylab = "Global_reactive_power", 
+  plot(DateTime, Global_reactive_power, type="l", ylab = "Global_reactive_power", 
                                                               xlab = "datetime")
-  plot(data2$DateTime, data2$Voltage, type="l", ylab = "Voltage", xlab = "datetime")
-  plot(data2$DateTime, data2$Sub_metering_1, type="l", ylab = "Energy Submetering", xlab = "")
-  plot(data2$DateTime, data2$Sub_metering_2, type="l", ylab = "Energy Submetering", col="red")
-  plot(data2$DateTime, data2$Sub_metering_3, type="l", ylab = "Energy Submetering", col="blue")
+  plot(dDateTime, Voltage, type="l", ylab = "Voltage", xlab = "datetime")
+  plot(DateTime, Sub_metering_1, type="l", ylab = "Energy Submetering", xlab = "")
+  plot(DateTime, Sub_metering_2, type="l", ylab = "Energy Submetering", col="red")
+  plot(DateTime, Sub_metering_3, type="l", ylab = "Energy Submetering", col="blue")
   
   legend("topright", col=c("black","red", "blue"), legend= c("Sub_metering_1","Sub_metering_2", "Sub_metering_3"))
   legend("topright", pch = 1, col=c("black","red", "blue"), legend= c("Sub_metering_1","Sub_metering_2", "Sub_metering_3"))
