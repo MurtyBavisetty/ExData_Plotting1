@@ -20,14 +20,19 @@ data2 <- subset(data1, subset = (Date >="2007-02-01" & Date <= "2007-02-02"))
 rm(data1)
 
 ## Prepare Date and Time for the Time column and prepend it as DateTime column into the data2 frame
-#x <- paste(data2$Date, data2$Time)
-#strptime(x, "%y-%m-%d %H:%M:%S")
-
 x <- as.POSIXct(paste(data2$Date, data2$Time), format ="%Y-%m-%d %H:%M:%S")
 
 data2 <- cbind(DateTime = x, data2)
+
 ## The following plot shows the second plot and save it as plot2.png
-plot(weekdays(data2$DateTime), data2$Global_active_power, ylab = "Global Active Power (kilowatts)")
+with (data2, {
+  plot(DateTime, Global_active_power, ylab = "Global Active Power (kilowatts)",
+                                                 xlab = "", type ="n")
+  lines(DateTime, Global_active_power, col="black") 
+})
+
+#plot(data2$DateTime, data2$Global_active_power,
+#                                 ylab = "Global Active Power (kilowatts)")
 
 ## copy the image to as follows and save to plot2.png as follows
 
