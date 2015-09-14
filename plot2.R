@@ -1,4 +1,4 @@
-## Project1 - Plot2
+## Project1 - Plot2 (revised)
 ## The following script is pretty much common to each of the pla
 ## Install and load the necessary packages
 setwd("datasciencecoursera/R")
@@ -30,9 +30,6 @@ with (data2, {
                                                  xlab = "", type ="n")
   lines(DateTime, Global_active_power, col="black") 
 })
-
-#plot(data2$DateTime, data2$Global_active_power,
-#                                 ylab = "Global Active Power (kilowatts)")
 
 ## copy the image to as follows and save to plot2.png as follows
 
