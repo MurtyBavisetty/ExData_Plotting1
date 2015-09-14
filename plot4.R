@@ -29,16 +29,23 @@ data2 <- cbind(DateTime = x, data2)
 ## Plot all the 4 sub plots under the same plot and save as plot4
 par(mfrow = c(2,2))   ## Set aside for 2 rows of plots and each row containing two plots
 with (data2, {
-  plot(DateTime, Global_reactive_power, type="l", ylab = "Global_reactive_power", 
-                                                              xlab = "datetime")
-  plot(dDateTime, Voltage, type="l", ylab = "Voltage", xlab = "datetime")
-  plot(DateTime, Sub_metering_1, type="l", ylab = "Energy Submetering", xlab = "")
-  plot(DateTime, Sub_metering_2, type="l", ylab = "Energy Submetering", col="red")
-  plot(DateTime, Sub_metering_3, type="l", ylab = "Energy Submetering", col="blue")
+  plot(DateTime, Global_active_power, type="l", ylab = "Global Active Power", 
+                                                              xlab = "")
+  plot(DateTime, Voltage, type="l", ylab = "Voltage", xlab = "datetime")
   
-  legend("topright", col=c("black","red", "blue"), legend= c("Sub_metering_1","Sub_metering_2", "Sub_metering_3"))
-  legend("topright", pch = 1, col=c("black","red", "blue"), legend= c("Sub_metering_1","Sub_metering_2", "Sub_metering_3"))
-})
+  
+  plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", xlab = "", type ="n")
+  lines(DateTime, Sub_metering_1, col="black") 
+  lines(DateTime, Sub_metering_2, col="red" )
+  lines(DateTime, Sub_metering_3, col="blue")
+  
+  legend("topright", lty = 1, col=c("black","red", "blue"), legend= c("Sub_metering_1",
+                                                                      "Sub_metering_2", "Sub_metering_3"))
+  
+  
+  plot(DateTime, Global_reactive_power, type="l", ylab = "Global_reactive Power", 
+                                      xlab = "datetime")
+  })
 
 ## copy the image to as follows and save to plot4.png as follows
 
