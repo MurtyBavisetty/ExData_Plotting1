@@ -33,15 +33,15 @@ with (data2, {
                                                               xlab = "")
   plot(DateTime, Voltage, type="l", ylab = "Voltage", xlab = "datetime")
   
-  
-  plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", xlab = "", type ="n")
-  lines(DateTime, Sub_metering_1, col="black") 
-  lines(DateTime, Sub_metering_2, col="red" )
-  lines(DateTime, Sub_metering_3, col="blue")
-  
-  legend("topright", lty = 1, col=c("black","red", "blue"), legend= c("Sub_metering_1",
-                                                                      "Sub_metering_2", "Sub_metering_3"))
-  
+  with (data2, {
+    plot(DateTime, Sub_metering_1, ylab = "Energy Sub metering", xlab = "", type ="n")
+    lines(DateTime, Sub_metering_1, col="black") 
+    lines(DateTime, Sub_metering_2, col="red" )
+    lines(DateTime, Sub_metering_3, col="blue")
+    
+    legend("topright", lty = 1, col=c("black","red", "blue"), 
+           legend= c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+  })
   
   plot(DateTime, Global_reactive_power, type="l", ylab = "Global_reactive Power", 
                                       xlab = "datetime")
